@@ -41,7 +41,7 @@ class KarmaPlugin < Plugin
   def karma(m, params)
     thing = params[:key]
     thing = m.sourcenick unless thing
-    thing = thing.to_s
+    thing = thing.to_s.sub(/^@/,"")
     karma = @registry[thing]
     if(karma != 0)
       m.reply "karma for #{thing}: #{@registry[thing]}"
@@ -94,6 +94,7 @@ class KarmaPlugin < Plugin
 
     ac.each do |k, v|
       next if v == 0
+      k = k.sub(/^@/,"")
       @registry[k] += (v > 0 ? 1 : -1)
       m.reply @bot.lang.get("thanks") if k == @bot.nick && v > 0
     end
