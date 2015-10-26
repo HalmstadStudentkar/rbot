@@ -749,7 +749,8 @@ plugin.map 'markov enable', :action => "enable"
 plugin.map 'markov disable', :action => "disable"
 plugin.map 'markov status', :action => "status"
 plugin.map 'markov stats', :action => "stats"
-plugin.map 'chat about :seed1 [:seed2]', :action => "chat"
+plugin.map 'markov :seed1 [:seed2]', :action => "chat", :defaults => {:seed2 => nil}
+plugin.map 'chat about :seed1 [:seed2]', :action => "chat", :defaults => {:seed2 => nil}
 plugin.map 'chat', :action => "rand_chat"
 plugin.map 'markov', :action => "rand_chat"
 plugin.map 'markov probability [:probability]', :action => "probability",
