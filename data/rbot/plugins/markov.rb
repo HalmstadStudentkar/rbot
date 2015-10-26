@@ -299,11 +299,9 @@ class MarkovPlugin < Plugin
     else
       output = word1
       keys = []
-      @chains.each_key(output) do |key|
+      @chains.each_key do |key|
         if key.downcase.include? output
           keys << key
-        else
-          break
         end
       end
       return nil if keys.empty?
