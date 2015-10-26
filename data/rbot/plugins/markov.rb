@@ -751,6 +751,7 @@ plugin.map 'markov status', :action => "status"
 plugin.map 'markov stats', :action => "stats"
 plugin.map 'chat about :seed1 [:seed2]', :action => "chat"
 plugin.map 'chat', :action => "rand_chat"
+plugin.map 'markov', :action => "rand_chat"
 plugin.map 'markov probability [:probability]', :action => "probability",
            :requirements => {:probability => /^\d+%?$/}
 plugin.map 'markov learn from :file [:testing [:lines lines]] [using pattern *pattern]', :action => "learn_from", :thread => true,
