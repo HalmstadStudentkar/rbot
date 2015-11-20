@@ -574,7 +574,7 @@ class MarkovPlugin < Plugin
   def chat(m, params)
     line = generate_string(params[:seed1], params[:seed2])
     if line and line != [params[:seed1], params[:seed2]].compact.join(" ")
-      m.reply line
+      @bot.say(m.channel, line)
     else
       m.reply _("I can't :(")
     end
@@ -591,7 +591,7 @@ class MarkovPlugin < Plugin
       word1, word2 = word2, word3
     end
     if output.length > 1
-      m.reply output.join(" ")
+      @bot.say(m.channel, output.join(" "))
     else
       m.reply _("I can't :(")
     end
